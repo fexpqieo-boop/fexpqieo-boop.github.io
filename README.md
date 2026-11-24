@@ -1,97 +1,45 @@
-# BEN 10 ARCHIVE — The Ultimate Fan Database
+# Ben 10 — Arquivo Omniverso
 
-Site estático de fã sobre a franquia Ben 10, em português (Brasil), preparado para publicação no **GitHub Pages**.
+Site de fã responsivo, com visual sci-fi verde inspirado no tema do Omnitrix e estrutura semelhante a um audiobook interativo.
 
-## O que já vem no projeto
+## Recursos já incluídos
 
-- Página responsiva com identidade visual original inspirada em ficção científica.
-- Separação entre continuidade clássica, reboot de 2016, nova série de quadrinhos da Dynamite (2026) e conteúdo feito por fãs.
-- Linha do tempo inicial da franquia.
-- Filtros e busca de séries, filmes, especiais e aliens.
-- Catálogo inicial de aliens e dispositivos Omnitrix.
-- Área de quadrinhos: Cartoon Network Action Pack!, BOOM! Studios, graphic novels de Omniverse e Dynamite 2026.
-- Seções de concept art e AUs, com indicação de autoria e procedência.
-- Lista inicial de jogos e links de referência.
+- Linha do tempo da franquia.
+- Catálogo inicial das cinco séries animadas principais.
+- Filmes e especiais.
+- Catálogo de quadrinhos, com destaque para a série da Dynamite iniciada em 2026.
+- Área para organizar artes conceituais por categoria e registrar procedência.
+- Cadastro local de AUs (universos alternativos) com créditos e link para a publicação original.
+- Banco inicial de aliens com busca e filtro por era.
+- Audiobook com 11 capítulos narrados pela voz em português disponível no navegador (Web Speech API).
+- Quiz de 10 perguntas.
+- Progresso dos capítulos e AUs guardados no navegador (localStorage).
+- PWA instalável e cache básico para uso offline após a primeira visita.
 
-## Como abrir no computador
+## Como testar
 
 1. Extraia o ZIP.
-2. Abra a pasta `ben10-archive`.
-3. Dê dois cliques em `index.html` para visualizar no navegador.
+2. Abra `index.html` em um navegador moderno para testar os recursos principais.
+3. Para instalar como aplicativo e testar o modo offline, publique em um endereço HTTPS, por exemplo GitHub Pages. O service worker não funciona em `file://`.
 
-Não é necessário instalar Node, Python ou qualquer framework.
+## Como publicar no GitHub
 
-## Como publicar no GitHub Pages
+1. Crie um repositório público ou privado no GitHub.
+2. Entre no repositório e use **Add file → Upload files**.
+3. Envie os arquivos e pastas que estão dentro desta pasta (`index.html`, `styles.css`, `app.js`, `manifest.json`, `sw.js`, `assets/` e `README.md`).
+4. Confirme em **Commit changes**.
+5. Para ativar o GitHub Pages, abra **Settings → Pages**, escolha a branch principal e a pasta `/ (root)`, e salve.
 
-### Opção A — endereço `seuusuario.github.io`
+## Como expandir sem bagunçar o projeto
 
-1. Entre no GitHub e crie um repositório público chamado exatamente `SEUUSUARIO.github.io` (substitua pelo seu nome de usuário).
-2. Envie todos os arquivos e pastas deste projeto para a raiz do repositório. O arquivo `index.html` precisa ficar diretamente na raiz.
-3. Abra **Settings → Pages** no repositório.
-4. Em **Build and deployment**, selecione **Deploy from a branch**.
-5. Escolha a branch `main` e a pasta `/ (root)`, depois salve.
-6. O endereço será `https://SEUUSUARIO.github.io/`.
+- As séries, filmes, quadrinhos, aliens, capítulos e questões ficam no começo de `app.js`, em listas separadas (`SERIES`, `MOVIES`, `COMICS`, `ALIENS`, `CHAPTERS`, `QUIZ`).
+- Para adicionar uma edição de HQ, inclua título, data, resumo, status e link oficial quando houver.
+- Para adicionar áudio gravado por você, crie uma pasta `audio/` e use um elemento `<audio controls>` na página do capítulo. Esta versão usa voz do navegador e não inclui gravações oficiais.
+- Para inserir arte, use apenas imagens cuja publicação/uso seja permitido e registre artista, fonte e status. Não trate arte de fã como concept art oficial.
+- A área de AUs salva apenas no navegador atual; para uma galeria pública com contribuições de várias pessoas, será necessário conectar uma base de dados e moderação.
 
-### Opção B — projeto dentro de um repositório
+## Limites e créditos
 
-1. Crie um repositório chamado, por exemplo, `ben10-archive`.
-2. Envie os arquivos do projeto para a raiz do repositório.
-3. Em **Settings → Pages**, selecione **Deploy from a branch**, branch `main` e pasta `/ (root)`.
-4. O endereço será `https://SEUUSUARIO.github.io/ben10-archive/`.
+Projeto independente de fã, sem afiliação com Cartoon Network, Warner Bros. Discovery, Man of Action, Dynamite Entertainment, IDW ou quaisquer titulares. Ben 10, nomes, personagens e marcas pertencem aos seus respectivos proprietários. Este repositório não contém episódios, páginas de quadrinhos, artes oficiais ou trilhas sonoras.
 
-O GitHub pode levar alguns minutos para publicar a primeira versão. Não coloque o projeto dentro de uma segunda pasta `ben10-archive/` ao enviar: `index.html` deve estar na raiz selecionada pelo Pages.
-
-## Como atualizar o conteúdo
-
-Edite `assets/js/data.js`. Os principais blocos são:
-
-- `timeline`: marcos da franquia.
-- `media`: séries, filmes e especiais.
-- `aliens`: formas alienígenas e habilidades.
-- `devices`: Omnitrix e dispositivos relacionados.
-- `comics`: HQs e graphic novels.
-- `variants`: versões alternativas oficiais.
-- `fanAUs`: universos alternativos criados por fãs.
-- `games`: jogos.
-
-### Como adicionar uma AU
-
-No final de `assets/js/data.js`, localize `fanAUs: []` e acrescente itens neste formato:
-
-```js
-fanAUs: [
-  {
-    name: "Nome da AU",
-    creator: "Nome ou apelido do criador",
-    description: "Resumo original da história e do que torna essa AU diferente."
-  }
-]
-```
-
-Se já houver itens em `fanAUs`, acrescente uma vírgula depois do último objeto e insira o novo objeto. Não publique e-mail, telefone, endereço ou outros dados pessoais de colaboradores.
-
-## Artes conceituais e direitos autorais
-
-O site usa elementos gráficos originais e áreas ilustrativas feitas em CSS; não inclui logotipos oficiais, capturas de episódios, páginas de quadrinhos ou artes de produção copiadas. Para adicionar imagens reais, use apenas arquivos que você criou, materiais com licença compatível ou imagens cujo uso tenha sido autorizado. Identifique sempre artista, fonte, série e contexto. Prefira links para a publicação original quando não houver autorização para hospedar uma imagem.
-
-## Precisão e manutenção
-
-- Datas e calendários de quadrinhos podem mudar; confirme sempre no site oficial da editora.
-- A nova série da Dynamite de 2026 está separada das continuidades animadas neste arquivo até que uma fonte editorial indique explicitamente uma conexão.
-- Conteúdo fan-made e AUs devem permanecer marcados como **FAN-MADE**.
-- Este projeto é uma enciclopédia inicial expansível, não um catálogo oficial nem uma reprodução completa de cada episódio, HQ ou arte.
-
-## Referências iniciais
-
-- Dynamite Entertainment — https://dynamite.com/titles/ben-10/
-- Dynamite — Ben 10 #1 — https://dynamite.com/BEN-10-1/
-- Dynamite — Ben 10 Creator Files #1 — https://dynamite.com/BEN-10-CREATOR-FILES-1/
-- BOOM! Studios — https://www.boom-studios.com/search/BEN%2010
-- BOOM! Studios — anúncio do programa de graphic novels — https://www.boom-studios.com/archives/boom-studios-launches-new-ben-10-graphic-novel-program/
-- CB Lee — https://cb-lee.com/ben-10/
-- Grand Comics Database — https://www.comics.org/feature/2087/issues/
-- Ben 10 Wiki (comunidade, usar como referência secundária) — https://ben10.fandom.com/wiki/Franchise
-
----
-
-Projeto independente de fã. Ben 10 e elementos relacionados pertencem aos seus respectivos titulares.
+A linha de quadrinhos da Dynamite é catalogada de acordo com as informações disponíveis em 23 de novembro de 2026. Datas futuras estão marcadas como previstas e podem mudar.

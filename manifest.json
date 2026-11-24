@@ -1,0 +1,15 @@
+{
+  "name": "Ben 10 — Arquivo Omniverso",
+  "short_name": "Ben 10 Arquivo",
+  "description": "Arquivo interativo de fã com linha do tempo, audiobook, quiz e catálogo Ben 10.",
+  "lang": "pt-BR",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#070d0b",
+  "theme_color": "#07110d",
+  "icons": [
+    {"src":"assets/omnitrix.svg","sizes":"any","type":"image/svg+xml","purpose":"any maskable"}
+  ]
+}
